@@ -1,2 +1,2 @@
 # PythonProgramming_FinalProject
-A website aggregator that aggregate sources from multiple webistes
+A website aggregator that aggregates sources from multiple webistes
