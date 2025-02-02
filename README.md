@@ -8,7 +8,11 @@ The Reddit section should display one page of the top posts.
 The Twitch section would display an embedded video of a stream.
 
 Week 4: get access to all my API keys.
+
 Week 5: Working on Python code that retrieve and parse data of each section
+
 Week 6: Continue to work on different sections
+
 Week 7: Build the website and put together each section
+
 Week 8: Finish up the project to make sure each section displays information properly
