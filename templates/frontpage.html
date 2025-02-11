@@ -1,33 +1,100 @@
 <!DOCTYPE html>
-<html>
-  <head>
-    <title>Front Page</title>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Front Page</title>
+
+    <!-- link to CSS style sheet-->
     <link href="static/bootstrap.min.css" rel="stylesheet" media="screen">
-  </head>
-  <body>
+    <link rel="stylesheet" href="styles.css">
+</head>
+
+<body>
     <div class="container">
-      <h1>Welcome to the front page</h2>
-      <br>
-      <p></p>
+        <h1>Welcome to the front page</h1>
+        <br>
+        <p></p>
     </div>
 
     <section id="header">
-      <h5>Hacker News | Reddit | Twitch</h5>
+        <h5>
+            <a href="#hacker-news">Hacker News</a> | 
+            <a href="#reddit">Reddit</a> | 
+            <a href="#twitch">Twitch</a>
+        </h5>
     </section>
+    <hr class="solid">
 
+    <!-- Hacker News section -->
     <section id="hacker-news">
-        <h2>Hacker News</h2>
-    </section>
+        <h2>
+            <!-- website logo -->
+            <img src="{{ url_for('static', filename='images/Y_Combinator.png') }}" 
+                 alt="Hacker News" 
+                 width="35" 
+                 height="35" 
+                 class="platform-icon">
+            <!-- website link -->
+            <a href="https://news.ycombinator.com/" target="_blank">Hacker News</a>
+        </h2>
 
+        <!-- iterate through articles -->
+        {% for article in hackernews_stories %}
+        <div class="article">
+            <h4><a href="{{ article.url }}" target="_blank">{{ article.title }}</a></h4>
+            <p>Date: {{ article.time }} | Score: {{ article.upvotes }}</p>
+        </div>
+        {% endfor %}
+
+        <!-- back to top link -->
+        <div class="back-to-top">
+            <a href="#header" aria-label="Back to top">
+                <span class="underline">Back to top</span>
+            </a>
+        </div>
+    </section>
+    <hr class="solid">
+
+    <!-- reddit Section -->
     <section id="reddit">
-        <h2>Reddit</h2>
-    </section>
+        <h2>
+            <img src="{{ url_for('static', filename='images/Reddit.png') }}" 
+                 alt="Reddit" 
+                 width="35" 
+                 height="35" 
+                 class="platform-icon">
+            <a href="https://www.reddit.com/r/all/" target="_blank">Reddit</a>
+        </h2>
 
+        {% for post in reddit_posts %}
+        <div class="post">
+            <h4><a href="{{ post.url }}" target="_blank">{{ post.title }}</a></h4>
+            <p>Date: {{ post.time }} | Upvotes: {{ post.upvotes }} | Subreddit: {{ post.subreddit }}</p>
+        </div>
+        {% endfor %}
+        
+        <div class="back-to-top">
+            <a href="#header" aria-label="Back to top">
+                <span class="underline">Back to top</span>
+            </a>
+        </div>
+    </section>
+    <hr class="solid">
+
+    <!-- Twitch Section -->
     <section id="twitch">
         <h2>Twitch</h2>
+        <!-- pass -->
+
+        <div class="back-to-top">
+          <a href="#header" aria-label="Back to top">
+              <span class="underline">Back to top</span>
+          </a>
+        </div>
     </section>
 
-  </body>
-</html>
+</body>
 
+</html>
