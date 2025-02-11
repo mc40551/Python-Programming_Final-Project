@@ -32,11 +32,8 @@ def frontpage():
         "frontpage.html",
         hackernews_stories = hackernews_articles,
         reddit_posts = reddit_posts,
-        twitch_stream = twitch_stream
+        #twitch_stream = twitch_stream
     )
-
-
-
 
 # start the server with the 'run()' method
 if __name__ == '__main__':
