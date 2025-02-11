@@ -1,6 +1,9 @@
 # PythonProgramming_FinalProject
 A website aggregator that aggregates sources from multiple webistes
 
+- Run app.py
+- Goto http://127.0.0.1:5000/
+
 It would be built using Flask in Python, and the frontend of the website would use HTML and CSS.
 The program would take in API keys of the target websites, parse the information retrieved, then display the information on the website.
 The news articles would be divided into pages, with next and back buttons.  Each article should include its publishing date and source.
