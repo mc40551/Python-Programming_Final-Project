@@ -1,0 +1,192 @@
+/* the entire body of the webpage */
+body { 
+    font-family: Arial, sans-serif;
+    background-color: #121212; /* dark background for the body */
+    color: #a7a7a7; /* text color */
+    margin: 0;
+    padding: 0;
+}
+
+/* the welcome section */
+.container {
+    background-color: #123524; /* background color */
+    padding: 20px; /* add padding around the text */
+    color: #e1e1e1;
+    margin: 0; /* remove margin around the section */
+    width: 100%; /* full width */
+}
+
+h1 {
+    text-align: left;
+    color: #e1e1e1;
+    padding: 20px;
+    margin: 0;
+    text-indent: 7px; /* indentation before text */
+}
+
+/* Hacker News, Reddit, and Twitch content sections */
+#hacker-news,
+#reddit,
+#twitch {
+    background-color: #1e1e1e;
+    padding: 15px;
+    margin: 0;
+    width: 100%; 
+    border-radius: 20px; /* rounded corners for sections */
+}
+
+/* background for the space between sections */
+hr.solid {
+    border: none; /* remove border */
+    height: 30px; /* set height for the space */
+    background-color: #121212;
+    margin: 0;
+}
+
+/* Hacker News header */
+#hacker-news h2 {
+    background-color: #2a4939;
+    color: #e1e1e1;
+    padding: 20px;
+    margin: 10px; /* margin below the header */
+    margin-top: 0px; /* margin above the header */
+    border-radius: 10px;
+}
+
+/* Reddit header */
+#reddit h2 {
+    background-color: #2a4939;
+    color: #e1e1e1;
+    padding: 20px;
+    margin-bottom: 10px;
+    margin-top: 0px;
+    border-radius: 10px;
+}
+
+/* Twitch header */
+#twitch h2 {
+    background-color: #2a4939;
+    color: #e1e1e1;
+    padding: 20px;
+    margin-bottom: 20px;
+    margin-top: 0px;
+    border-radius: 10px;
+}
+
+/* hyperlink colors in headers */
+#hacker-news h2 a,
+#reddit h2 a,
+#twitch h2 a {
+    color: #e1e1e1;
+    text-decoration: none; /* remove underline */
+}
+
+/* visited links */
+#hacker-news h2 a:visited,
+#reddit h2 a:visited,
+#twitch h2 a:visited {
+    color: #e1e1e1;
+}
+
+/* hover effects */
+#hacker-news h2 a:hover,
+#reddit h2 a:hover,
+#twitch h2 a:hover {
+    opacity: 0.8; /* fade the link on hover */
+    transition: opacity 0.3s ease; /* transition */
+}
+
+h4 {
+    margin: 5px;
+}
+
+a {
+    color: #e1e1e1;
+    text-decoration: none;
+}
+
+a:hover {
+    text-decoration: underline;
+}
+
+#header h4 {
+    text-align: left;
+    margin: 10px;
+    color: #ffffff;
+    padding-left: 10px;
+}
+
+#header a {
+    margin: 10px;
+    color: #ffffff;
+}
+
+#header a:hover {
+    color: #ffffff;
+}
+
+/* Reddit and Hacker News articles */
+.article, .post {
+    background-color: #1e1e1e;
+    padding: 10px;
+    margin-bottom: 5px;
+    border-bottom: 1px solid #333;
+}
+
+.article h4, .post h4 {
+    color: #e1e1e1;
+}
+
+.article p, .post p {
+    color: #e1e1e1;
+    font-size: 0.9em;
+    margin: 5px;
+}
+
+/* icons */
+.platform-icon {
+    margin-right: 10px;
+    vertical-align: middle;
+}
+
+/* back to top section */
+.back-to-top {
+    background-color: #425d4e;
+    text-align: left;
+    margin-top: 20px;
+    width: fit-content; /* set width to fit the content */
+    border-radius: 10px;
+    padding: 10px;
+}
+
+.back-to-top a {
+    display: inline-block;
+    padding: 10px 15px;
+    color: white;
+    text-decoration: none;
+    transition: background-color 0.3s ease;
+}
+
+.back-to-top a:hover {
+    opacity: 0.8;
+    transition: opacity 0.3s ease;
+}
+
+/* Twitch container */
+.twitch-embed-container {
+    position: relative;
+    width: 50%; /* set width to 50%  */
+    padding-top: 28.125%; /* 16:9 ratio */
+    overflow: hidden;
+    border-radius: 5px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+.twitch-embed-container iframe {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    border: none;
+}
