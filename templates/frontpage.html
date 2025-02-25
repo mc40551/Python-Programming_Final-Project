@@ -7,24 +7,22 @@
     <title>Front Page</title>
 
     <!-- link to CSS style sheet-->
-    <link href="static/bootstrap.min.css" rel="stylesheet" media="screen">
+    <link href="static/styles.css" rel="stylesheet" media="screen">
     <link rel="stylesheet" href="styles.css">
 </head>
 
 <body>
     <div class="container">
         <h1>Welcome to the front page</h1>
-        <br>
-        <p></p>
+        <section id="header">
+            <h4>
+                <a href="#hacker-news">Hacker News</a> | 
+                <a href="#reddit">Reddit</a> | 
+                <a href="#twitch">Twitch</a>
+            </h4>
+        </section>
     </div>
-
-    <section id="header">
-        <h5>
-            <a href="#hacker-news">Hacker News</a> | 
-            <a href="#reddit">Reddit</a> | 
-            <a href="#twitch">Twitch</a>
-        </h5>
-    </section>
+    
     <hr class="solid">
 
     <!-- Hacker News section -->
@@ -85,13 +83,23 @@
 
     <!-- Twitch Section -->
     <section id="twitch">
-        <h2>Twitch</h2>
-        <!-- pass -->
-
+        <h2>
+            <img src="{{ url_for('static', filename='images/Twitch.png') }}" 
+                alt="Twitch" 
+                width="35" 
+                height="35" 
+                class="platform-icon">
+            <a href="https://www.twitch.tv/" target="_blank">Twitch</a>
+        </h2>
+        <div class="twitch-embed-container">
+            <iframe src="https://player.twitch.tv/?channel=hasanabi&parent=127.0.0.1&autoplay=false&muted=false&time=0s" 
+                    allowfullscreen>
+            </iframe>
+        </div>
         <div class="back-to-top">
-          <a href="#header" aria-label="Back to top">
-              <span class="underline">Back to top</span>
-          </a>
+            <a href="#header" aria-label="Back to top">
+                <span class="underline">Back to top</span>
+            </a>
         </div>
     </section>
 
