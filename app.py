@@ -11,7 +11,7 @@ app = Flask(__name__)
 # APIs 
 hackernews_key = "https://hacker-news.firebaseio.com/v0/topstories.json"
 reddit_key = "https://www.reddit.com/r/all/top.json?limit=10"
-twitch_key = "https://jsonplaceholder.typicode.com/posts/1"
+twitch_key = "hasanabi"
 
 # use decorators to link the function to a url
 @app.route('/')
@@ -32,7 +32,7 @@ def frontpage():
         "frontpage.html",
         hackernews_stories = hackernews_articles,
         reddit_posts = reddit_posts,
-        #twitch_stream = twitch_stream
+        twitch_hand = twitch_key
     )
 
 # start the server with the 'run()' method

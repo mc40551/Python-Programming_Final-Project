@@ -2,7 +2,7 @@ import requests
 import datetime 
 
 def parse_hackernews(hackernews_key):
-    # get json through API
+    # access API
     news_response = requests.get(hackernews_key).json()[:10]
     articles = []
     for article in news_response:
