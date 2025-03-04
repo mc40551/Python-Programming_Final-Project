@@ -100,6 +100,14 @@ h4 {
     margin: 5px;
 }
 
+#logout h4 {
+    text-align: right;
+    margin: 10px;
+    color: #ffffff;
+    padding-left: 10px;
+}
+
+
 a {
     color: #e1e1e1;
     text-decoration: none;
