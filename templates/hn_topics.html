@@ -1,0 +1,9 @@
+<h2>Select Hacker News Topic</h2>
+<form method="post">
+    <select name="topic">
+        {% for topic in topics %}
+        <option value="{{ topic }}">{{ topic|title }}</option>
+        {% endfor %}
+    </select>
+    <button type="submit">save</button>
+</form>

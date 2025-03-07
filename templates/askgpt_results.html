@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Ask GPT Results</title>
+
+</head>
+<body>
+    <div class="container">
+        <h1>Top News Articles based on your interests: {{ interests }}</h1>
+        
+        {% if articles %}
+            {% for article in articles.split('\n') %}
+                {% if article.strip() %}
+                    <div class="article">
+                        <p>{{ article }}</p>
+                    </div>
+                {% endif %}
+            {% endfor %}
+        {% else %}
+            <p>No articles found based on your interests.</p>
+        {% endif %}
+    </div>
+</body>
+</html>

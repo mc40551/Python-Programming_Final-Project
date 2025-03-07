@@ -7,8 +7,7 @@
     <title>Front Page</title>
 
     <!-- link to CSS style sheet-->
-    <link href="static/styles.css" rel="stylesheet" media="screen">
-    <link rel="stylesheet" href="styles.css">
+    <link href="{{ url_for('static', filename='styles.css') }}" rel="stylesheet" media="screen">
 </head>
 
 <body>
@@ -16,8 +15,8 @@
         <h1>Welcome to the front page</h1>
         <section id="header">
             <h4>
-                <a href="#hacker-news">Hacker News</a> | 
-                <a href="#reddit">Reddit</a> | 
+                <a href="#hacker-news">Hacker News</a> |
+                <a href="#reddit">Reddit</a> |
                 <a href="#twitch">Twitch</a>
             </h4>
         </section>
@@ -25,31 +24,38 @@
             <h4><a href="{{ url_for('logout') }}"><u>Logout</u></a></h4>
         </div>
     </div>
-    
+
     <hr class="solid">
 
     <!-- Hacker News section -->
     <section id="hacker-news">
         <h2>
             <!-- website logo -->
-            <img src="{{ url_for('static', filename='images/Y_Combinator.png') }}" 
-                 alt="Hacker News" 
-                 width="35" 
-                 height="35" 
-                 class="platform-icon">
+            <img src="{{ url_for('static', filename='images/Y_Combinator.png') }}" alt="Hacker News" width="35"
+                height="35" class="platform-icon">
             <!-- website link -->
             <a href="https://news.ycombinator.com/" target="_blank">Hacker News</a>
+            <a href="{{ url_for('hackernews_topics') }}"
+                style="margin-left: 15px; padding: 5px 10px; background: #425d4e; border-radius: 5px;">
+                Change Topic
+            </a>
+            </a>
+            <!-- link to /askgpt -->
+            <a href="{{ url_for('askgpt_route') }}" style="margin-left: 15px; padding: 5px 10px; background: #425d4e; border-radius: 5px;">
+                  Ask GPT
+            </a>
         </h2>
 
         <!-- iterate through articles -->
         {% for article in hackernews_stories %}
         <div class="article">
             <h4><a href="{{ article.url }}" target="_blank">{{ article.title }}</a></h4>
+            <p>Summary: {{ article.response }}</p>
             <p>Date: {{ article.time }} | Score: {{ article.upvotes }}</p>
+
         </div>
         {% endfor %}
 
-        <!-- back to top link -->
         <div class="back-to-top">
             <a href="#header" aria-label="Back to top">
                 <span class="underline">Back to top</span>
@@ -61,21 +67,23 @@
     <!-- reddit Section -->
     <section id="reddit">
         <h2>
-            <img src="{{ url_for('static', filename='images/Reddit.png') }}" 
-                 alt="Reddit" 
-                 width="35" 
-                 height="35" 
-                 class="platform-icon">
+            <img src="{{ url_for('static', filename='images/Reddit.png') }}" alt="Reddit" width="35" height="35"
+                class="platform-icon">
             <a href="https://www.reddit.com/r/all/" target="_blank">Reddit</a>
+            <a href="{{ url_for('reddit_subreddits') }}"
+                style="margin-left: 15px; padding: 5px 10px; background: #425d4e; border-radius: 5px;">
+                Change Subreddit
+            </a>
         </h2>
 
         {% for post in reddit_posts %}
         <div class="post">
             <h4><a href="{{ post.url }}" target="_blank">{{ post.title }}</a></h4>
+            <p>Summary: {{ post.response }}</p>
             <p>Date: {{ post.time }} | Upvotes: {{ post.upvotes }} | Subreddit: {{ post.subreddit }}</p>
         </div>
         {% endfor %}
-        
+
         <div class="back-to-top">
             <a href="#header" aria-label="Back to top">
                 <span class="underline">Back to top</span>
@@ -87,24 +95,44 @@
     <!-- Twitch Section -->
     <section id="twitch">
         <h2>
-            <img src="{{ url_for('static', filename='images/Twitch.png') }}" 
-                alt="Twitch" 
-                width="35" 
-                height="35" 
-                class="platform-icon">
+            <!-- website logo -->
+            <img src="{{ url_for('static', filename='images/twitch.png') }}" alt="Twitch" width="35"
+                height="35" class="platform-icon">
+            <!-- website link -->
             <a href="https://www.twitch.tv/" target="_blank">Twitch</a>
         </h2>
+
+        <!-- Form to add a new Twitch stream -->
+        <form action="{{ url_for('add_twitch') }}" method="post">
+            <input type="text" name="stream" placeholder="Enter Stream ID">
+            <button type="submit">add Stream</button>
+        </form>
+        <br>
+
+        <!-- Display Twitch streams -->
+        {% if twitch_streams %}
+        {% for stream_id in twitch_streams %}
         <div class="twitch-embed-container">
-            <iframe src="https://player.twitch.tv/?channel=hasanabi&parent=127.0.0.1&autoplay=false&muted=false&time=0s" 
-                    allowfullscreen>
-            </iframe>
+            <iframe src="https://player.twitch.tv/?channel={{ stream_id }}&parent=127.0.0.1&autoplay=false&muted=false&time=0s"
+                frameborder="0" allowfullscreen scrolling="no" height="480" width="854"></iframe>
+                <br>
+            <div class="delete-button-container">
+                <a href="{{ url_for('delete_twitch', stream=stream_id) }}" class="delete-button">Delete Stream</a>
+            </div>
+            
         </div>
+        {% endfor %}
+        {% else %}
+        <p>No Twitch streams added yet.</p>
+        {% endif %}
+
+
         <div class="back-to-top">
             <a href="#header" aria-label="Back to top">
                 <span class="underline">Back to top</span>
             </a>
         </div>
-    </section>
+    </div>
 
 </body>
 
