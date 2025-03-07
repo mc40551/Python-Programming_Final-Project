@@ -12,7 +12,6 @@ if not GOOGLE_API_KEY:
 
 genai.configure(api_key=GOOGLE_API_KEY)
 model = genai.GenerativeModel('gemini-2.0-flash')
-# ---------------------------------
 
 def get_summary(url):
     # generates a brief summary of the content at the given URL
@@ -21,14 +20,14 @@ def get_summary(url):
         return "No Gogole API key"
 
     prompt = f"You are a friendly and helpful assistant who looks at the following link and gives a very brief 2-sentence description of the content. If you are not able to provide a summary, return 'no summary.\n URL: {url}"
-    print(f"prompt: {prompt} \n")
-    print(f"{url}\n")
+    #print(f"prompt: {prompt} \n")
+    #print(f"{url}\n")
 
     try:
         # generates response based on the prompt
         response = model.generate_content(prompt)
         summary = response.text.strip()
-        #print(f"Generated Summary: {summary}\n")
+        print(f"Generated Summary: {summary}\n")
         return response.text.strip()
     
     except Exception:
@@ -97,14 +96,5 @@ def parse_reddit(reddit_key):
     return reddit_posts
 
 def convert_time(unix_time):
-    """
-    Converts Unix timestamp to human-readable format.
-
-    Args:
-        unix_time (int): Unix timestamp.
-
-    Returns:
-        str: Formatted date and time string.
-    """
     date_time = datetime.datetime.fromtimestamp(unix_time)
     return date_time.strftime('%Y-%m-%d %H:%M:%S')

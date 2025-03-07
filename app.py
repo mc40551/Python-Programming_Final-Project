@@ -142,7 +142,7 @@ def askgpt_route():
         all_articles = askgpt.parse_hackernews("https://hacker-news.firebaseio.com/v0/topstories.json")[:100]
         # displays the top 5 articles
         top_5_articles = askgpt.get_summary(user_interests, all_articles) 
-        
+
         return render_template('askgpt_results.html', articles=top_5_articles, interests=user_interests)
     return render_template('askgpt.html')
 
@@ -152,6 +152,6 @@ def logout():
     session.pop('logged_in', None)
     return redirect(url_for('home'))
 
-# start the server with the 'run()' method
+# starts the server with the 'run()' method
 if __name__ == '__main__':
     app.run(debug=True)

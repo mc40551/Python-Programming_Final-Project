@@ -10,7 +10,6 @@ GOOGLE_API_KEY = "AIzaSyDD93eux1J4Jb4mLyuegbFoquZBsQszAGs"
 genai.configure(api_key=GOOGLE_API_KEY)
 # chooses the model
 model = genai.GenerativeModel('gemini-2.0-flash')
-# ---------------------------------
 
 def get_interest(user_response):
     # generates a brief summary of the content at the given URL
