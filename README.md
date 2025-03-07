@@ -1,5 +1,5 @@
 # PythonProgramming_FinalProject
-A website aggregator that aggregates sources from multiple webistes
+A Flask-based website aggregator that aggregates sources from multiple webistes
 
 It would be built using Flask in Python, and the frontend of the website would use HTML and CSS.
 The program would take in API keys of the target websites, parse the information retrieved, then display the information on the website.
