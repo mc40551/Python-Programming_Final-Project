@@ -183,18 +183,20 @@ a:hover {
 /* Twitch container */
 .twitch-embed-container {
     position: relative;
-    width: 50%; /* set width to 50%  */
-    padding-top: 28.125%; /* 16:9 ratio */
+    width: 70%; /* set width to 70% */
+    /*padding-top: 28.125%; /* 16:9 ratio */
     overflow: hidden;
     border-radius: 5px;
     box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    margin-bottom: 20px; /* Add space between Twitch streams */
 }
 
 .twitch-embed-container iframe {
-    position: absolute;
+    position: relative;
     top: 0;
     left: 0;
     width: 100%;
-    height: 100%;
+    height: 480px;  /* Make sure the height is defined */
     border: none;
+    margin: 0;
 }
