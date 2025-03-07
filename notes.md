@@ -68,5 +68,3 @@ More features
 - user registration and maintaince
 - database that maintains user info
 - pagination function for the Hacker News and Reddit
-
-AIzaSyDD93eux1J4Jb4mLyuegbFoquZBsQszAGs
